@@ -1,0 +1,172 @@
+/* HEADER SECTION */
+
+.header {
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../img/hero.jpg");
+    background-position: top;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    @include media-query(phone) {
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+}
+
+.header__logo {
+    height: 3.5rem;
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $color-white;
+}
+
+.header__text--main {
+    display: block;
+    letter-spacing: 3rem;
+    font-weight: 400;
+    font-size: 6rem;
+    animation-name: fadeFromLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    @include media-query(phone) {
+        letter-spacing: 1rem;
+        font-size: 5rem;
+    }
+}
+
+.header__text--sub {
+    display: block;
+    letter-spacing: 1.74rem;
+    font-size: 2rem;
+    font-weight: 700;
+    animation: fadeFromRight 1s ease-out;
+    margin-bottom: 6rem;
+    @include media-query(phone) {
+        letter-spacing: .5rem;
+    }
+}
+
+@keyframes fadeFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80% {
+        transform: translateX(1.5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes fadeFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80% {
+        transform: translateX(-1.5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10rem;
+    padding: 1.5rem 4rem;
+    font-size: 1.6rem;
+    transition: all .2s;
+    // For button not links
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-.1rem);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn--white {
+    color: $color-grey-dark;
+    background-color: $color-white;
+}
+
+.btn--green {
+    color: white;
+    background-color: $color-primary;
+}
+
+
+/* here we used after pseudo element to create a virtual button 
+(right after the element we are selecting) which we placed behind the main button */
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // color: $color-grey-dark;
+    // background-color: $color-white;
+    border-radius: 10rem;
+    z-index: -1;
+    transition: all .4s ease-out;
+}
+
+.btn--white::after {
+    color: $color-grey-dark;
+    background-color: $color-white;
+}
+
+.btn--green::after {
+    color: white;
+    background-color: $color-primary;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn--animated {
+    animation: animateButton .5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes animateButton {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,48 @@
+/* FEATURES SECTION */
+
+.features {
+    background-image: linear-gradient(to right, rgba($color-primary-light, 0.7), rgba($color-primary-dark, 0.7)), url("../img/nat-4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    // min-height: 90vh;
+    padding: 10rem 0;
+    display: flex;
+    align-items: center;
+    transform: skewY(-7deg);
+    margin-top: -9rem;
+}
+
+.features__row {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    transform: skewY(7deg);
+}
+
+.features__box {
+    flex-basis: 26rem;
+    background-color: rgba($color-white, 0.8);
+    font-size: 1.5rem;
+    border-radius: 3px;
+    box-shadow: 0px 1.5rem 4rem rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 3rem 2.5rem;
+    margin-top: 3rem;
+    transition: transform .3s ease-out;
+    h3 {
+        margin-bottom: 1.5rem;
+    }
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+    }
+}
+
+.features__icon {
+    font-size: 6rem;
+    background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8));
+    -webkit-background-clip: text;
+    color: transparent;
+}
