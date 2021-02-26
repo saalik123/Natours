@@ -1,3 +1,21 @@
+// @mixin NameOfMixin {
+//     color: black;
+//     text-decoration: none;
+//     margin: FunctionName(30, 2) * 1px;
+// }
+
+
+// @include NameOfMixin -> to include mixin
+
+
+// @function FunctionName($a, $b){
+//     @return $a/$b
+// }
+
+// FunctionName(20, 2)  -> calling the function
+
+
+
 // MEDIA QUERY MIXIN
 
 /* 
@@ -13,7 +31,22 @@
 //         @content
 //     }
 // }
+
+
+// media queries break points are not affected by our root font-size settings. The breakpoints used in media queries always 
+// come from browser. i.e, 1 rem or 1em = 16px(or unit specified by user) no matter what our root font size setting is.
+// Also ems are considered better option for media-queries than rems. 1 em = 16px;
+
+
+// @media only screen and (max-width: 600px), only screen and (hover: none){
+//     // to check whether screen is less than 600px wide or does screen support hover or not 
+//     // i.e, if we can hover on any element
+//     // (hover: hover)
+// }
+
+
 @mixin media-query($breakpoint) {
+
     // 1em = 16px
     @if $breakpoint==phone {
         @media screen and (max-width: 37.5em) {
@@ -21,21 +54,27 @@
             @content
         }
     }
+
     ;
+
     @if $breakpoint==tablet-port {
         @media screen and (max-width: 56.25em) {
             // 900px
             @content
         }
     }
+
     ;
+
     @if $breakpoint==tablet-land {
-        @media screen and (max-width: 75em) {
+        @media only screen and (max-width: 75em) {
             // 1200px
             @content
         }
     }
+
     ;
+
     @if $breakpoint==big-desktop {
         @media screen and (min-width: 112.5em) {
             // 1800px

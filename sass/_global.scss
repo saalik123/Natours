@@ -17,27 +17,33 @@ $color-tertiary-light: #2998ff;
 $color-tertiary-dark: #5643fa;
 $color-white: #fff;
 $color-grey-dark: #777;
+
 *,
 *::after,
 *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    // box-sizing: inherit;
 }
 
 // 1rem = 16px; = 100%
 html {
     font-size: 62.5%; // 1rem= 10px; 10px/16px = 62.5%
     scroll-behavior: smooth;
+
     @include media-query(big-desktop) {
         font-size: 75%; // 1rem=12px; 12px/16px= 75%
     }
+
     @include media-query(tablet-land) {
         font-size: 56.25%; // 1rem=9px; 9px/16px = 56.25%
     }
+
     @include media-query(tablet-port) {
         font-size: 50%; // 1rem=8px; 8px/16px= 50%
     }
+
     @include media-query(phone) {
         font-size: 50%;
     }
@@ -50,6 +56,8 @@ body {
     line-height: 1.7;
     color: $color-grey-dark;
     padding: 3rem;
+
+    // box-sizing: border-box;
     @include media-query(tablet-port) {
         padding: 0;
     }

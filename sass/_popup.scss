@@ -12,12 +12,14 @@
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease-out;
+
     // GRACEFUL DEGRADATION / Feature Query
     @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         background-color: rgba(0, 0, 0, 0.3);
     }
+
     &__content {
         background-color: $color-white;
         width: 75%;
@@ -29,61 +31,77 @@
         transform: translate(-50%, -50%) scale(0.25);
         display: table;
         transition: all .5s ease-out .2s;
+
         @media screen and (max-width: 1500px) {
             display: flex;
             flex-direction: column;
             // align-items: stretch;
         }
+
         h2,
         h3 {
             margin-bottom: 2rem;
         }
+
         &--left {
             width: 34%;
             display: table-cell;
+
             @media screen and (max-width: 1500px) {
                 width: 100%;
                 display: flex;
                 flex-direction: row;
             }
         }
+
         &--right {
             position: relative;
             width: 66%;
             display: table-cell;
             vertical-align: middle;
             padding: 3rem 5rem;
+
             @media screen and (max-width: 1500px) {
                 text-align: center;
                 width: 100%;
             }
         }
     }
+
     &__image {
         display: block;
         width: 100%;
+
         @media screen and (max-width: 1500px) {
             width: 50%;
         }
     }
+
     &__text {
         font-size: 1.4rem;
         column-count: 2;
         column-gap: 4rem;
         column-rule: 1px solid #eee;
+
+        // -moz-hyphens: auto;
+        // -ms-hyphens: auto;
+        // -webkit-hyphens: auto;
         // hyphens: auto;
         @include media-query(phone) {
             column-count: 1;
             text-align: left;
         }
     }
+
     &:target {
         opacity: 1;
         visibility: visible;
     }
+
     &:target &__content {
         transform: translate(-50%, -50%) scale(1);
     }
+
     &__close {
         font-size: 3.3rem;
         color: #777;
@@ -94,6 +112,7 @@
         right: 2.5rem;
         display: inline-block;
         transition: all .2s ease-out;
+
         &:hover {
             color: $color-primary;
         }
